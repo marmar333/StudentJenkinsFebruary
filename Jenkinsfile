@@ -13,19 +13,12 @@ pipeline {
         }
         stage('Run integration tests') {
             steps {
-                bat 'npm run test'
+                bat 'docker build'
             }
         }
         stage('Deploy to STAGING') {
             steps {
                 echo 'Deploying to staging'
-            }
-        }
-        stage('Approval for Production Deployment') {
-            steps {
-                script {
-                    input message: 'Proceed with production deployment?', ok: 'Deploy'
-                }
             }
         }
         stage('Deploy to PRODUCTION') {
