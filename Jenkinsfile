@@ -21,6 +21,13 @@ pipeline {
                 echo 'Deploying to staging'
             }
         }
+        stage('Approval for Production Deployment') {
+            steps {
+                script {
+                    input message: 'Proceed with production deployment?', ok: 'Deploy'
+                }
+            }
+        }
         stage('Deploy to PRODUCTION') {
             steps {
                 echo 'Deploying to production'
