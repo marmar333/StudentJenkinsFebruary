@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run integration tests') {
             steps {
-                bat 'docker build'
+                bat 'npm run test'
             }
         }
         stage('Deploy to STAGING') {
