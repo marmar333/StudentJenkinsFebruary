@@ -1,8 +1,0 @@
-version: '3'
-services:
-  app:
-    image: dimosoftuni/students:latest
-    ports:
-      - "3030:3030" # Map port 3030 on the host to port 3030 in the container
-    environment:
-      - NODE_ENV=production
