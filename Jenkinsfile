@@ -4,17 +4,12 @@ pipeline {
         stage('NPM Install') {
             steps {
                 bat 'npm install'
+                bat 'npm audit fix --force'  // Add this line to fix vulnerabilities
             }
         }
        stage('Run npm audit tests') {
             steps {
                 bat 'npm audit'
-            }
-        }
-        stage('NPM Install') {
-            steps {
-                bat 'npm install'
-                bat 'npm audit fix --force'  // Add this line to fix vulnerabilities
             }
         }
         stage('Run integration tests') {
